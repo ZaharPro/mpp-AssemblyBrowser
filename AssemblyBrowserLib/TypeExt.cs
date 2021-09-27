@@ -33,8 +33,16 @@ namespace AssemblyBrowserLib
         }
         public static string PrintSemantics(this Type type)
         {
-            return type.IsInterface ? "interface" :
-                type.IsValueType ? "struct" : "class";
+
+            if (type.IsClass)
+                return "class";
+            if (type.IsEnum)
+                return "enum";
+            if (type.IsInterface)
+                return "interface";
+            if (type.IsValueType && !type.IsPrimitive)
+                return "struct";
+            return "";
         }
 
         public static string PrintDefinitionName(this Type type)

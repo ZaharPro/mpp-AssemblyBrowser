@@ -60,7 +60,7 @@ namespace AssemblyBrowserLib
             else
             {
                 if (method.IsConstructor)
-                    return method.ReflectedType.Name;
+                    return method.ReflectedType.PrintDefinitionName();
                 if (method is MethodInfo m)
                     return m.ReturnType.PrintDefinitionName() + " " + method.Name;
                 return method.Name;
@@ -86,14 +86,11 @@ namespace AssemblyBrowserLib
 
         public static string PrintDeclaration(this MethodBase method)
         {
-            string[] strings = {
+            var strings = new string[] {
                 method.PrintVisibility(),
                 method.PrintTypeOfDefinition(),
                 method.PrintDefinitionName() + method.PrintParams()
-            };
-            strings = strings
-                .Where(s => !string.IsNullOrEmpty(s))
-                .ToArray();
+            }.Where(s => !string.IsNullOrEmpty(s));
             return string.Join(' ', strings);
         }
     }
