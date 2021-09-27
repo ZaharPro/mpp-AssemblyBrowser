@@ -4,12 +4,13 @@ using System.Linq;
 
 namespace AssemblyBrowserLib
 {
-    public class NameSpaceInfo
+    public class NamespaceInfo
+
     {
         public string Name { get; }
         public IEnumerable<TypeInfo> Types { get; }
 
-        public NameSpaceInfo(string name, IEnumerable<Type> types)
+        public NamespaceInfo(string name, IEnumerable<Type> types)
         {
             Name = name;
             Types = types.Select(type => new TypeInfo(type));
