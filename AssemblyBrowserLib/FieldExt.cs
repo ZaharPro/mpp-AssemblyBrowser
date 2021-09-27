@@ -27,7 +27,7 @@ namespace AssemblyBrowserLib
             return field.IsStatic ? "static" : "";
         }
 
-        public static string PrintDeclaration(this FieldInfo field)
+        public static string PrintDefinition(this FieldInfo field)
         {
             var strings = new string[] {
                 field.PrintVisibility(),

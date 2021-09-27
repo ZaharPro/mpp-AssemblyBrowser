@@ -6,7 +6,11 @@ namespace AssemblyBrowserLib
 {
     public static class AssemblyExt
     {
-        public static IDictionary<string, IEnumerable<Type>> Namespaces(this Assembly assembly)
+        public static AssemblyInfo GetAssemblyInfo(this Assembly assembly)
+        {
+            return new AssemblyInfo(assembly);
+        }
+        public static IDictionary<string, List<Type>> GetNamespaces(this Assembly assembly)
         {
             _ = assembly ?? throw new ArgumentNullException(nameof(assembly));
             Dictionary<string, List<Type>> namespaces = new();
@@ -19,7 +23,7 @@ namespace AssemblyBrowserLib
                 }
                 list.Add(type);
             }
-            return (IDictionary<string, IEnumerable<Type>>)namespaces;
+            return namespaces;
         }
     }
 }

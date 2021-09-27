@@ -72,7 +72,7 @@ namespace AssemblyBrowserLib
             }
         }
 
-        public static string PrintDeclaration(this Type type)
+        public static string PrintDefinition(this Type type)
         {
             var strings = new string[] {
                 type.PrintVisibility(),

@@ -84,7 +84,7 @@ namespace AssemblyBrowserLib
             return sb.ToString();
         }
 
-        public static string PrintDeclaration(this MethodBase method)
+        public static string PrintDefinition(this MethodBase method)
         {
             var strings = new string[] {
                 method.PrintVisibility(),
