@@ -1,4 +1,4 @@
-﻿using AssemblyBrowserLib;
+﻿using AssemblyBrowserLib.Extensions;
 using System.Windows;
 
 namespace AssemblyBrowserApp
@@ -11,9 +11,7 @@ namespace AssemblyBrowserApp
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowViewModel mainWindowViewModel = new();
-            DataContext = mainWindowViewModel;
-            mainWindowViewModel.AssemblyInfo = typeof(MainWindow).Assembly.GetAssemblyInfo();
+            DataContext = new MainWindowViewModel();
         }
     }
 }

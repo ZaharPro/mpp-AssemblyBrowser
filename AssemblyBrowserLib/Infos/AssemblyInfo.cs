@@ -1,20 +1,15 @@
-﻿using System.Collections;
+﻿using AssemblyBrowserLib.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Infos
 {
-    public class AssemblyInfo : IItem
+    public class AssemblyInfo
     {
         public string Name { get; }
         public IEnumerable<NamespaceInfo> NameSpaces { get; }
-
-        public string Header => nameof(AssemblyInfo);
-        public string Text => Name;
-        public IEnumerable<IItem> SubItems => NameSpaces;
-
 
         public AssemblyInfo(Assembly assembly)
         {

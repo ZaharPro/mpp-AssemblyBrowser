@@ -1,18 +1,15 @@
-﻿using System;
+﻿using AssemblyBrowserLib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Infos
 {
-    public class NamespaceInfo : IItem
+    public class NamespaceInfo
     {
         public string Name { get; }
         public IEnumerable<TypeInfo> Types { get; }
-
-        public string Header => nameof(NamespaceInfo);
-        public string Text => Name;
-        public IEnumerable<IItem> SubItems => Types;
 
         public NamespaceInfo(string name, IEnumerable<Type> types)
         {

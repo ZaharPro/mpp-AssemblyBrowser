@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Extensions
 {
     public static class TypeExt
     {

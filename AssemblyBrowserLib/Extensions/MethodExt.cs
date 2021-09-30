@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Extensions
 {
     public static class MethodExt
     {

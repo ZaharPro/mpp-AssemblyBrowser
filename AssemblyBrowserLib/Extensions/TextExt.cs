@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Extensions
 {
     public static class TextExt
     {
@@ -12,7 +12,7 @@ namespace AssemblyBrowserLib
             return regex.Replace(s, "\n");
         }
 
-        public static void Append(this StringBuilder sb, string name, IEnumerable enumerable)
+        public static StringBuilder Append(this StringBuilder sb, string name, IEnumerable enumerable)
         {
             sb.Append(name).Append('\n');
 
@@ -26,6 +26,7 @@ namespace AssemblyBrowserLib
                 sb.Length--;
                 sb.Append('[').Append(']').Append('\n');
             }
-        }        
+            return sb;
+        }
     }
 }

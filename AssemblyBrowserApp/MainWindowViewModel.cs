@@ -1,5 +1,5 @@
-﻿
-using AssemblyBrowserLib;
+﻿using AssemblyBrowserLib.Extensions;
+using AssemblyBrowserLib.Nodes;
 using Microsoft.Win32;
 using System.ComponentModel;
 using System.Reflection;
@@ -24,12 +24,12 @@ namespace AssemblyBrowserApp
         }
 
 
-        private AssemblyInfo assemblyInfo;
-        public AssemblyInfo AssemblyInfo { get => assemblyInfo; set => SetProperty(ref assemblyInfo, value); }
+        private Tree _tree;
+        public Tree Tree { get => _tree; set => SetProperty(ref _tree, value); }
 
 
-        private OpenFileDialog _fileDialog;
-        private OpenFileDialog FileDialog =>
+        private FileDialog _fileDialog;
+        private FileDialog FileDialog =>
             _fileDialog ??= new OpenFileDialog
             {
                 Filter = "Assemblies|*.dll;*.exe",
@@ -47,7 +47,9 @@ namespace AssemblyBrowserApp
                 {
                     try
                     {
-                        AssemblyInfo = Assembly.Load(FileDialog.FileName)?.GetAssemblyInfo();
+                        Tree = new AssemblyInfoTree(
+                            Assembly.Load(FileDialog.FileName)
+                                    .GetAssemblyInfo());
                     }
                     catch
                     {

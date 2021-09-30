@@ -1,8 +1,9 @@
-﻿using System;
+﻿using AssemblyBrowserLib.Infos;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace AssemblyBrowserLib
+namespace AssemblyBrowserLib.Extensions
 {
     public static class AssemblyExt
     {
@@ -12,7 +13,6 @@ namespace AssemblyBrowserLib
         }
         public static IDictionary<string, List<Type>> GetNamespaces(this Assembly assembly)
         {
-            _ = assembly ?? throw new ArgumentNullException(nameof(assembly));
             Dictionary<string, List<Type>> namespaces = new();
             foreach (Type type in assembly.GetTypes())
             {

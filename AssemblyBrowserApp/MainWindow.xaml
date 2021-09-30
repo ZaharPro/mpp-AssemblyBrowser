@@ -17,9 +17,9 @@
             <MenuItem Header="Edit"></MenuItem>
             <MenuItem Header="View"></MenuItem>
         </Menu>
-        <TreeView ItemsSource="{Binding Path=AssemblyInfo, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Width="900">
+        <TreeView ItemsSource="{Binding Path=Tree, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Width="900">
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=SubItems}">
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=SubTrees}">
                     <TextBlock Text="{Binding Path=Text}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
