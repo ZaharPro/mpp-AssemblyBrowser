@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace AssemblyBrowserLib
 {
@@ -45,16 +45,26 @@ namespace AssemblyBrowserLib
                 .ToArray();
 
             List<string> itemsBuilder = new();
-            itemsBuilder.Add("Fields:");
+            //itemsBuilder.Add("Fields:");
             itemsBuilder.AddRange(FieldDefinitions);
-            itemsBuilder.Add("Constructors:");
+            //itemsBuilder.Add("Constructors:");
             itemsBuilder.AddRange(ConstructorDefinitions);
-            itemsBuilder.Add("Methods:");
+            //itemsBuilder.Add("Methods:");
             itemsBuilder.AddRange(MethodDefinitions);
 
             SubItems = itemsBuilder
                 .Select(s => new StringItem() { Text = s })
                 .ToArray();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            sb.Append("Definition:\n").Append(Definition).Append('\n');
+            sb.Append("Fields:", FieldDefinitions);
+            sb.Append("Constructors:", ConstructorDefinitions);
+            sb.Append("Methods:", MethodDefinitions);
+            return sb.ToString();
         }
     }
 }
