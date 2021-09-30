@@ -1,5 +1,4 @@
-﻿using AssemblyBrowserApp.ViewModels;
-using AssemblyBrowserLib;
+﻿using AssemblyBrowserLib;
 using System.Windows;
 
 namespace AssemblyBrowserApp

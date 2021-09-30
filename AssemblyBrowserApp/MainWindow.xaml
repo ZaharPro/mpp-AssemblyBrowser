@@ -3,16 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:AssemblyBrowserApp.ViewModels"
+        xmlns:viewmodels="clr-namespace:AssemblyBrowserApp"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         Title="MainWindow" Height="600" Width="900">
-
-    <TreeView ItemsSource="{Binding Path=AssemblyInfo}">
-        <TreeView.ItemTemplate>
-            <HierarchicalDataTemplate ItemsSource="{Binding Path=SubItems}">
-                <TextBlock Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
-            </HierarchicalDataTemplate>
-        </TreeView.ItemTemplate>
-    </TreeView>
+    <DockPanel LastChildFill="False">
+        <Menu VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open Assembly" Command="{Binding OpenFileCommand}"></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit"></MenuItem>
+            <MenuItem Header="View"></MenuItem>
+        </Menu>
+        <TreeView ItemsSource="{Binding Path=AssemblyInfo, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Width="900">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=SubItems}">
+                    <TextBlock Text="{Binding Path=Text}" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </DockPanel>
 </Window>
