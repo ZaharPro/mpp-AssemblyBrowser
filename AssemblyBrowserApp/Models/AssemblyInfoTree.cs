@@ -1,7 +1,7 @@
 ﻿using AssemblyBrowserLib.Infos;
 using System.Linq;
 
-namespace AssemblyBrowserLib.Nodes
+namespace Models
 {
     public class AssemblyInfoTree : Tree
     {

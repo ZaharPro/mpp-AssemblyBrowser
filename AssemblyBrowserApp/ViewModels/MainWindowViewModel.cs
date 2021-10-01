@@ -1,12 +1,13 @@
 ﻿using AssemblyBrowserLib.Extensions;
-using AssemblyBrowserLib.Nodes;
+using Commands;
 using Microsoft.Win32;
+using Models;
+using System;
 using System.ComponentModel;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace AssemblyBrowserApp
+namespace ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
@@ -32,7 +33,7 @@ namespace AssemblyBrowserApp
         private FileDialog FileDialog =>
             _fileDialog ??= new OpenFileDialog
             {
-                Filter = "Assemblies|*.dll;*.exe",
+                Filter = "Assembly | *.dll",
                 Title = "Select assembly",
                 Multiselect = false
             };
@@ -40,21 +41,32 @@ namespace AssemblyBrowserApp
 
         private ICommand _openFileCommand;
         public ICommand OpenFileCommand =>
-            _openFileCommand ??= new Command(obj =>
+            _openFileCommand ??= new RelayCommand(obj =>
             {
-                var isOpen = FileDialog.ShowDialog();
+                try
+                {
+
+                    Tree = new AssemblyInfoTree(typeof(Tree).Assembly
+                                .GetAssemblyInfo());
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+
+                /*var isOpen = FileDialog.ShowDialog();
                 if (isOpen != null && isOpen.Value)
                 {
                     try
                     {
                         Tree = new AssemblyInfoTree(
-                            Assembly.Load(FileDialog.FileName)
+                            Assembly.LoadFrom(FileDialog.FileName)
                                     .GetAssemblyInfo());
                     }
-                    catch
+                    catch (Exception e)
                     {
+                        Console.WriteLine(e.ToString());
                     }
-                }
+                }*/
             });
     }
 }

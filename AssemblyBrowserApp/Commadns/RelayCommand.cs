@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace AssemblyBrowserApp
+namespace Commands
 {
-    public class Command : ICommand
+    public class RelayCommand : ICommand
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
@@ -14,7 +14,7 @@ namespace AssemblyBrowserApp
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public Command(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;

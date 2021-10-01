@@ -2,7 +2,7 @@
 using System.Text;
 using AssemblyBrowserLib.Extensions;
 
-namespace AssemblyBrowserLib.Nodes
+namespace Models
 {
     public class Tree
     {

@@ -3,26 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:AssemblyBrowserApp"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewModels="clr-namespace:ViewModels"
+        xmlns:models="clr-namespace:Models"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
-        Title="MainWindow" Height="600" Width="900">
-    <DockPanel LastChildFill="False">
-        <Menu VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+        ResizeMode="NoResize"
+        Title="Assembly Browser" Width="900" Height="600">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Window.DataContext>
+    <StackPanel HorizontalAlignment="Left">
+        <Menu>
             <MenuItem Header="File">
-                <MenuItem Header="Open Assembly" Command="{Binding OpenFileCommand}"></MenuItem>
-                <Separator />
-                <MenuItem Header="Exit"></MenuItem>
+                <MenuItem Header="Open" Command="{Binding OpenFileCommand}" />
             </MenuItem>
-            <MenuItem Header="Edit"></MenuItem>
-            <MenuItem Header="View"></MenuItem>
         </Menu>
-        <TreeView ItemsSource="{Binding Path=Tree, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Width="900">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=SubTrees}">
-                    <TextBlock Text="{Binding Path=Text}" />
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-    </DockPanel>
+        <Grid Width="880" Height="550">
+            <TreeView Margin="10" ItemsSource="{Binding Tree, UpdateSourceTrigger=PropertyChanged}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type models:Tree}"
+                                              ItemsSource="{Binding SubTrees}">
+                        <TreeViewItem Header="{Binding Text}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </Grid>
+    </StackPanel>
 </Window>
