@@ -50,9 +50,11 @@ namespace AssemblyBrowserLib.Extensions
                 {
                     foreach (Type t in genericArgs)
                     {
-                        sb.Append(t.PrintDefinitionName()).Append(',');
+                        sb.Append(t.PrintDefinitionName())
+                            .Append(',')
+                            .Append(' ');
                     }
-                    sb.Length--;
+                    sb.Length -= 2;
                 }
                 sb.Append('>');
                 return sb.ToString();
@@ -77,7 +79,10 @@ namespace AssemblyBrowserLib.Extensions
             foreach (var parameter in parameters)
             {
                 sb.Append(parameter.ParameterType.PrintDefinitionName())
-                    .Append(',');
+                    .Append(' ')
+                    .Append(parameter.Name)
+                    .Append(',')
+                    .Append(' ');
             }
             sb.Length--;
             sb.Append(')');

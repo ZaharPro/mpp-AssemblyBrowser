@@ -32,7 +32,8 @@ namespace AssemblyBrowserLib.Extensions
             var strings = new string[] {
                 field.PrintVisibility(),
                 field.PrintTypeOfDefinition(),
-                field.FieldType.PrintDefinitionName()
+                field.FieldType.PrintDefinitionName(),
+                field.Name
             }.Where(s => !string.IsNullOrEmpty(s));
             return string.Join(' ', strings);
         }

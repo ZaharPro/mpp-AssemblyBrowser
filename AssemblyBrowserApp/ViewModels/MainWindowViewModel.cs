@@ -3,7 +3,9 @@ using Commands;
 using Microsoft.Win32;
 using Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
@@ -25,8 +27,8 @@ namespace ViewModels
         }
 
 
-        private Tree _tree;
-        public Tree Tree { get => _tree; set => SetProperty(ref _tree, value); }
+        private IEnumerable<AssemblyInfoTree> _assemblies;
+        public IEnumerable<AssemblyInfoTree> Assemblies { get => _assemblies; set => SetProperty(ref _assemblies, value); }
 
 
         private FileDialog _fileDialog;
@@ -43,30 +45,31 @@ namespace ViewModels
         public ICommand OpenFileCommand =>
             _openFileCommand ??= new RelayCommand(obj =>
             {
-                try
+                /*try
                 {
 
-                    Tree = new AssemblyInfoTree(typeof(Tree).Assembly
-                                .GetAssemblyInfo());
-                } catch (Exception e)
+                    Assemblies = new AssemblyInfoTree[] {new AssemblyInfoTree(typeof(AssemblyInfoTree).Assembly
+                                .GetAssemblyInfo()) };
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
-                }
+                }*/
 
-                /*var isOpen = FileDialog.ShowDialog();
+                var isOpen = FileDialog.ShowDialog();
                 if (isOpen != null && isOpen.Value)
                 {
                     try
                     {
-                        Tree = new AssemblyInfoTree(
+                        Assemblies = new AssemblyInfoTree[] {new AssemblyInfoTree(
                             Assembly.LoadFrom(FileDialog.FileName)
-                                    .GetAssemblyInfo());
+                                    .GetAssemblyInfo()) };
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e.ToString());
                     }
-                }*/
+                }
             });
     }
 }

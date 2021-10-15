@@ -19,9 +19,9 @@
             </MenuItem>
         </Menu>
         <Grid Width="880" Height="550">
-            <TreeView Margin="10" ItemsSource="{Binding Tree, UpdateSourceTrigger=PropertyChanged}">
+            <TreeView Margin="10" ItemsSource="{Binding Assemblies, UpdateSourceTrigger=PropertyChanged}">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type models:Tree}"
+                    <HierarchicalDataTemplate DataType="{x:Type models:AssemblyInfoTree}"
                                               ItemsSource="{Binding SubTrees}">
                         <TreeViewItem Header="{Binding Text}" />
                     </HierarchicalDataTemplate>

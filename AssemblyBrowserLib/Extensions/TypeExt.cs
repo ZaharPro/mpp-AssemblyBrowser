@@ -59,7 +59,8 @@ namespace AssemblyBrowserLib.Extensions
                     foreach (Type t in genericArgs)
                     {
                         sb.Append(t.PrintDefinitionName())
-                            .Append(',');
+                            .Append(',')
+                            .Append(' ');
                     }
                     sb.Length--;
                 }
@@ -88,7 +89,7 @@ namespace AssemblyBrowserLib.Extensions
             list.RemoveAll(s => string.IsNullOrEmpty(s));
             if (list.Count != 0)
             {
-                declaration += ": " + string.Join(',', list);
+                declaration += ": " + string.Join(", ", list);
             }
             return declaration;
         }
