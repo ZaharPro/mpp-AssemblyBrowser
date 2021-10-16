@@ -62,7 +62,7 @@ namespace AssemblyBrowserLib.Extensions
                             .Append(',')
                             .Append(' ');
                     }
-                    sb.Length--;
+                    sb.Length-= 2;
                 }
                 sb.Append('>');
                 return sb.ToString();
