@@ -1,9 +1,9 @@
-﻿using AssemblyBrowserLib.Infos;
+﻿using Core.Infos;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace AssemblyBrowserLib.Extensions
+namespace Core.Extensions
 {
     public static class AssemblyExt
     {

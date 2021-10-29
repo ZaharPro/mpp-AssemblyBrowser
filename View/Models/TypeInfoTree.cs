@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using AssemblyBrowserLib.Infos;
+using Core.Infos;
 
 namespace Models
 {

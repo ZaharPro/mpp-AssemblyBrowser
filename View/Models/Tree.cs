@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using AssemblyBrowserLib.Extensions;
+using Core.Extensions;
 
 namespace Models
 {

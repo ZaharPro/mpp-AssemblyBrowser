@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AssemblyBrowserLib.Extensions
+namespace Core.Extensions
 {
     public static class TypeExt
     {
@@ -62,7 +62,7 @@ namespace AssemblyBrowserLib.Extensions
                             .Append(',')
                             .Append(' ');
                     }
-                    sb.Length-= 2;
+                    sb.Length -= 2;
                 }
                 sb.Append('>');
                 return sb.ToString();

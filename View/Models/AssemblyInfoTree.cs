@@ -1,7 +1,8 @@
-﻿using AssemblyBrowserLib.Infos;
+﻿using Core.Infos;
+using Models;
 using System.Linq;
 
-namespace Models
+namespace View.Models
 {
     public class AssemblyInfoTree : Tree
     {

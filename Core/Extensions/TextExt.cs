@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace AssemblyBrowserLib.Extensions
+namespace Core.Extensions
 {
     public static class TextExt
     {

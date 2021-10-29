@@ -1,10 +1,10 @@
-﻿using AssemblyBrowserLib.Extensions;
+﻿using Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AssemblyBrowserLib.Infos
+namespace Core.Infos
 {
     public class NamespaceInfo
     {

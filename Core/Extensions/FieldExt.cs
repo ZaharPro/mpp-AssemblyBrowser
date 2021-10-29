@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 
-namespace AssemblyBrowserLib.Extensions
+namespace Core.Extensions
 {
     public static class FieldExt
     {

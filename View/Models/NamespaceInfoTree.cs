@@ -1,4 +1,4 @@
-﻿using AssemblyBrowserLib.Infos;
+﻿using Core.Infos;
 using System.Linq;
 
 namespace Models
